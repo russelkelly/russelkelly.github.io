@@ -525,7 +525,146 @@ body {
   to   { opacity: 1; }
 }
 
-/* ─── RESPONSIVE ─── */
+
+/* ─── SOCIAL MEDIA ─── */
+.social {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 100px 48px;
+}
+
+.social .social-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.social-intro {
+  margin-bottom: 48px;
+}
+
+.social-intro p {
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 520px;
+  padding-left: 16px;
+  border-left: 2px solid var(--border-strong);
+}
+
+/* Outer row: arrow | slider | arrow */
+.social-slider-outer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Slider wrapper clips overflow */
+.social-slider-wrapper {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0 0 8px;
+}
+
+.social-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* Card — vertical portrait ratio like a phone reel */
+.social-card {
+  flex: 0 0 calc((100% - 40px) / 3);
+  min-width: 0;
+  cursor: pointer;
+}
+
+.social-card-inner {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--navy);
+  border: 1px solid var(--border);
+}
+
+/* Cloudinary iframe fills the card */
+.social-card-inner iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Slider arrows — flex siblings of the wrapper, never clipped */
+.slider-arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.slider-arrow:hover {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+  transform: scale(1.08);
+}
+
+/* Dots */
+.social-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.dot.active {
+  background: var(--navy);
+  transform: scale(1.3);
+}
+
+
+
+/* ─── SOCIAL RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .social { padding: 60px 24px; }
+  .social-card { flex: 0 0 calc((100% - 20px) / 2); }
+}
+
+@media (max-width: 640px) {
+  .social-card { flex: 0 0 100%; }
+}
+
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
